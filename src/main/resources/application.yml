@@ -1,0 +1,17 @@
+### server port
+server:
+    port: 9797
+
+#Keycloak Configuration
+keycloak:
+    auth-server-url: http://localhost:9696/auth
+    realm: SpringBootKeycloak
+    resource: login-app
+    public-client: true
+    security-constraints:
+    - authRoles:
+        - user
+    - securityCollections:
+        - patterns:
+          - /customers/*
+    principal-attribute: preferred_username
